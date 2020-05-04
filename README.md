@@ -30,7 +30,7 @@ Os veículos modernos usam diversos subsistemas específicos para controlar as d
 
 Há dois barramentos de comunicação no veículo. O primeiro é um barramento *Control Area Network (CAN)* de alto velocidade que estabelece a comunicação entre os subsistemas críticos como tração e armazenamento. A comunicação entre os demais subsistemas é realizado por um barramento CAN de baixa velocidade. O subsistema de instrumentação também funcionará como ponte entre os dois barramentos.
 
-O diagrama de blocos abaixo mostra os componentes e os dois barramentos CAN.
+O diagrama de blocos a seguir mostra os componentes e os dois barramentos CAN.
 
 ![Diagrama](./blob/master/Diagrama_blocos_BBB_Modbus_Can.jpg)
 
