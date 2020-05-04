@@ -2,7 +2,7 @@
 Rudivels @Abril 2020
 
 Pasta local  
-`/Users/rudi/src/Breletrico/`
+`/Users/rudi/src/BrEletrica/`
 
 
 
