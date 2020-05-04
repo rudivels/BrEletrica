@@ -32,7 +32,7 @@ Há dois barramentos de comunicação no veículo. O primeiro é um barramento *
 
 O diagrama de blocos abaixo mostra os componentes e os dois barramentos CAN.
 
-![Diagrama](Diagrama_blocos_BBB_Modbus_Can.jpg)
+![Diagrama](./Diagrama_blocos_BBB_Modbus_Can.jpg)
 
 
 Assim o subsistema de tração do veículo, composto pelo motor elétrico e o seu controlador recebe os comandos de velocidade e direção do condutor e disponibiliza todos os dados como rotação do motor, tensão e corrente do motor, temperatura do controlador etc, no barramento CAN de alta velocidade.
