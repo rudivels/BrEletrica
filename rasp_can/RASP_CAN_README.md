@@ -4,13 +4,13 @@ Rudivels@ maio 2020
 Raspberry com CANBUS para o BRElétrico
 
 Pasta local 
-`/Users/rudi/src/Raspberry/rasp_can`
+`/Users/rudi/src/BrEletrica/rasp_can`
 
 # 1. Apresentação
 O sistema de gerenciamento de energia do BRElétrica tem a função de monitorar o consumo de energia de todos os subsistemas do veículo e gerenciar a transferência de energia entre os sistemas de armazenamento e a rede de abastecimento e assim calcular a automia do veículo.
 
 Para isso o *Energy Management System* (EMS) precisa monitorar a partir dos dados transmitidas no barramento CAN o consumo de todos os subsistemas do veículo e interagir com os sistemas de armazenamento e abastecimento. 
-Exemplo de um EMS pode ser visto na referência <DOI:10.1109/ICSIMA.2013.6717928>
+Exemplo de um EMS pode ser visto na referência [1] 
 
 Devido a essa complexidade a proposta é que este sistema seja implementado num módulo com minicomputador Raspberry com interface para barramento CAN. 
 
@@ -104,24 +104,19 @@ A figura a seguir mostra a montagem do Raspberry com display e MCP2515
 
 ## 3.2. Configuração do Raspberry
 
-Instalando o tree overlay no Raspberry 
+A configuração do Raspberry foi baseado num artigo em <https://www.beyondlogic.org/adding-can-controller-area-network-to-the-raspberry-pi/>
+que apresenta um roteiro para ligar o minicomputar ao módulo MCP2515.
 
-Add the following line to your /boot/config.txt file:
+Para instalar o tree overlay no Raspberry deve se adicionar o seguinte linha ao arquivo `/boot/config.txt` :
 
 dtoverlay=mcp2515-can0,oscillator=8000000,interrupt=25 
 
-<https://www.beyondlogic.org/adding-can-controller-area-network-to-the-raspberry-pi/>
 
-
-
-
-Confere se o mcp2515 foi inicializado no boot pelo SPI
-
+Para conferir se o módulo can foi corretamente carregado pelo Kernel durante o boot e inicializada pela pela porta SPI pode se executar o comando:
+ 
 `dmesg | grep mcp`
 
-Once you have rebooted and the driver has been successfully loaded, you can manually bring up the CAN interface using:
-
-Para ativar o link 
+Uma vez carregado o driver corretamente pelo sistema você pode ativar manualmente a interface CAN pelo comando usando:
 
 `sudo /sbin/ip link set can0 up type can bitrate 500000`
  
@@ -135,4 +130,4 @@ Você pode verificar a configuração do link com
 
 # 5. Bibliografia
 
-S. Mohd, S. A. Zulkifli, R. G. A. Rangkuti, M. Ovinis and N. Saad, "Electric vehicle energy management system using National Instruments' CompactRIO and LabVIEW," 2013 IEEE International Conference on Smart Instrumentation, Measurement and Applications (ICSIMA), Kuala Lumpur, 2013, pp. 1-6.
+1 ) S. Mohd, S. A. Zulkifli, R. G. A. Rangkuti, M. Ovinis and N. Saad, "Electric vehicle energy management system using National Instruments' CompactRIO and LabVIEW," 2013 IEEE International Conference on Smart Instrumentation, Measurement and Applications (ICSIMA), Kuala Lumpur, 2013, pp. 1-6.  <DOI:10.1109/ICSIMA.2013.6717928>

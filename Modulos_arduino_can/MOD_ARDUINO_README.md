@@ -2,7 +2,7 @@
 Rudivels @Abril 2020
 
 Pasta local  
-`/Users/rudi/src/BREletrica/MODULOS_arduino_can/`
+`/Users/rudi/src/BrEletrica/MODULOS_arduino_can/`
 
 
 

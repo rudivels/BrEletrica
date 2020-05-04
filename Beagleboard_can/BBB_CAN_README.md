@@ -2,7 +2,7 @@
 Rudivels @Abril 2020
 
 Pasta local  
-`/Users/rudi/src/BREletrica/Can_bus_beagleoard/`
+`/Users/rudi/src/BrEletrica/Can_bus_beagleoard/`
 
   
 # 1. Apresentação 
