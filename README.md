@@ -32,10 +32,7 @@ Há dois barramentos de comunicação no veículo. O primeiro é um barramento *
 
 O diagrama de blocos abaixo mostra os componentes e os dois barramentos CAN.
 
-<img src="Diagrama_blocos_BBB_Modbus_Can.jpg" alt="Diagrama" title="Diagrama" width="600"  height="450" />
-
 ![Diagrama](Diagrama_blocos_BBB_Modbus_Can.jpg)
-
 
 Assim o subsistema de tração do veículo, composto pelo motor elétrico e o seu controlador recebe os comandos de velocidade e direção do condutor e disponibiliza todos os dados como rotação do motor, tensão e corrente do motor, temperatura do controlador etc, no barramento CAN de alta velocidade.
 
@@ -50,7 +47,7 @@ O computador de bordo funcionará como ponte entre as duas barramentos e também
 
 [Subsistemas no barramento CAN de alta velocidade](./Beagleboard_can/BBB_CAN_README.md)
 
-[Sistema de geranciamento de energia](./rasp_can/RASP_CAN_README.md)
+[Sistema de gerenciamento de energia](./rasp_can/RASP_CAN_README.md)
 
 # Bibliografia
  
