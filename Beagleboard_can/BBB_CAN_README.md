@@ -70,16 +70,17 @@ A dificuldade consiste no fato de o Beagle ter um sistemática de mapeamento de 
 
 No sistema operacional Linux  convencional as especificidades do hardware são de certa forma incorporadas no Kernel, mas este sistemática se mostrou impraticável com as placas ARM. Por isso foi introduzido a estrutura de Device Tree para que o computador Beagle saiba qual hardware e periféricos estão fisicamente instalados na placa. Veja o artigo de Mateus Gagliardi: Introdução ao uso de Device Tree e Device Tree Overlay em Sistemas Linux Embarcado. 2015. <https://www.embarcados.com.br/device-tree-linux-embarcado/>
 
-No caso do Beagle essa estrutura de Device Tree tem que dar conta para definir quais pinos serão usados do hardware, pois Beagle tem portas genéricas para entrada e saída de dados (GPIO), uma porta analógica (ADC), PWM, UART, SPI e I2C pinos, e estes pinos podem ser configurados para diversos usos. No nosso caso específico, as duas controladoras CAN usam alguns dos pinos da UART e do I2C como entrada e saída dos sinais CAN. 
+No caso do Beagle essa estrutura de Device Tree tem que dar conta para definir quais pinos serão usados do hardware, pois Beagle tem portas genéricas para entrada e saída de dados (GPIO), uma porta analógica (ADC), PWM, UART, SPI e I2C pinos, e estes pinos podem ser configurados para diversos usos. No nosso caso específico, as duas controladoras CAN usam alguns dos pinos da SPI e do I2C como entrada e saída dos sinais CAN. 
 
-Veja artigo de Bruno Oliveira 2017 - Aplicação rede CAN com BBB e Python <https://www.embarcados.com.br/can-com-beaglebone-black-e-python/>
+Este roteiro é uma adaptação da configuração do BBB no artigo no [https://www.beyondlogic.org/adding-can-to-the-beaglebone-black/](https://www.beyondlogic.org/adding-can-to-the-beaglebone-black/) para o PocketBeagle.
 
-Este roteiro está baseado no artigo no [https://www.beyondlogic.org/adding-can-to-the-beaglebone-black/](https://www.beyondlogic.org/adding-can-to-the-beaglebone-black/) 
-
-Nos release dos kernels mais novos a configuração do pinos é melhor documentos. Para ver a versão do kernal pode executar o comando: 
+Nos releases dos kernels mais novos a configuração do pinos é melhor documentos. Para ver a versão do kernal pode executar o comando: 
 
 `$ uname --a`
-`Linux beaglebone 4.19.94-ti-r42 #1buster SMP PREEMPT Tue Mar 31 19:38:29 UTC 2020 armv7l GNU/Linux`
+
+```
+Linux beaglebone 4.19.94-ti-r42 #1buster SMP PREEMPT Tue Mar 31 19:38:29 UTC 2020 armv7l GNU/Linux
+```
 
 Para verificar se de fato a Can bus está mapeado no kernel pode-se executar o comando 
 `$ dmesg | grep can`
@@ -98,6 +99,14 @@ O próximo passo é configur qual porta can será usado e quais pinos serão lig
 ![](conector_pocket.jpg)
 
 A interface CAN0 pode ser ligado nos pino 26 e 28 do conector P1. Nota-se que a interface CAN1 pode ser ligado nos pinos 9,10 ou 25,27. 
+
+| Beagle  | pino | transciever |  pino |
+|:-------:|:----:|:-----------:|:-----:|
+| gnd     | 21   | GND         | 2     |
+| 3.3v    | 23   | 3V3         | 1     | 
+| can1 rx | 25   | CRX         | 4     |
+| can1 tx | 27   | CTX         | 3     |
+
 
 Há um programa de configuração de pinos que permite escolher a funcionalidade do pino e ver seu atual uso.
 Por exemplo o seguinte comando lista todas as opções disponíveis para o pino P2.5:
@@ -161,6 +170,21 @@ Há uma vasta documentação técnica sobre o uso do SocketCan em sistemas opera
 
 # 3. Programação do computador de bordo
 
+Máquina de estado do computador de bordo. 
+Monitorando barramento de alta velocidade
+
+- Corrente e tensão do bateria
+- Estado do controlador do motor
+ 
+Monitorando barramento de baixa velocidade
+
+- Velocidade, temperatura
+- Tensão secundárias
+
+Visualizando dados no display.
+
+
+Para programação em Python Veja artigo de Bruno Oliveira 2017 - Aplicação rede CAN com BBB e Python <https://www.embarcados.com.br/can-com-beaglebone-black-e-python/>
 
 # Bibliografia
  
@@ -168,4 +192,4 @@ Há uma vasta documentação técnica sobre o uso do SocketCan em sistemas opera
 4) Ribeiro A do N, Meneghin P, Els RH van. Developing technology for a Brazilian hybrid electric mini car. 2nd Lat. Am. Conf. Sustain. Dev. Energy, Water Environ. Syst., 2020, p. 1–10. 
 [link artigo](http://fga.unb.br/rudi.van/galeria/arrigo-alex-lasdewes20-fp-161.pdf)
 
-
+[Volta](../README.md)

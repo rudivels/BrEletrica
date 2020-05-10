@@ -94,7 +94,7 @@ A ligação entre o módulo CAN e o Raspberry está mostrada na tabela a seguir.
 | GND       |   6       |  GND        |   6       |
 | Vcc       |   7       |  5V         |   1       | 
 
-Observação. Qaundo se ligou pela primeira vez o módulo, não foi conectado o INT do módulo. O módulo funcionou, mas ele consumiu mais de 75% dos recursos do cpu do Raspberry, que foi verificado com o programa `top`. 
+Observação. Quando se ligou pela primeira vez o módulo, não foi conectado o INT do módulo. O módulo funcionou, mas ele consumiu mais de 75% dos recursos do cpu do Raspberry, que foi verificado com o programa `top`. 
 Com a ligação do pino INT no GPIO.6 do Raspberry o uso dos recursos do CPU baixou para menos de 1% sem comunicação no barramento.
  
 A figura a seguir mostra a montagem do Raspberry com display e MCP2515
@@ -109,8 +109,9 @@ que apresenta um roteiro para ligar o minicomputar ao módulo MCP2515.
 
 Para instalar o tree overlay no Raspberry deve se adicionar o seguinte linha ao arquivo `/boot/config.txt` :
 
+```
 dtoverlay=mcp2515-can0,oscillator=8000000,interrupt=25 
-
+```
 
 Para conferir se o módulo can foi corretamente carregado pelo Kernel durante o boot e inicializada pela pela porta SPI pode se executar o comando:
  
@@ -118,7 +119,9 @@ Para conferir se o módulo can foi corretamente carregado pelo Kernel durante o 
 
 A seguinte mensagem indica que o mcp2512 foi inicializado com sucesso:
  
-`[   21.653929] mcp251x spi0.0 can0: MCP2515 successfully initialized.`
+```
+[   21.653929] mcp251x spi0.0 can0: MCP2515 successfully initialized.
+```
 
 Uma vez carregado o driver corretamente pelo sistema você pode ativar manualmente a interface CAN pelo comando usando:
 
@@ -153,6 +156,14 @@ Cada pacote com 4 bytes utis dá 64.500 bytes por segundo.
 
 
 # 4. Programa de EMS
+
+Máquina de estado do EMS.
+
+- Monitorando consumo da bateria de tração (corrente e tensão);
+- Monitorando perfil de deslocamento; 
+- Monitorando consumo baterias secundários.
+
+Implementando algoritmo de calculo de autonomia.
 
 
 # 5. Bibliografia
