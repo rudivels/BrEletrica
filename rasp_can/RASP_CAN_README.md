@@ -116,6 +116,10 @@ Para conferir se o módulo can foi corretamente carregado pelo Kernel durante o 
  
 `dmesg | grep mcp`
 
+A seguinte mensagem indica que o mcp2512 foi inicializado com sucesso:
+ 
+`[   21.653929] mcp251x spi0.0 can0: MCP2515 successfully initialized.`
+
 Uma vez carregado o driver corretamente pelo sistema você pode ativar manualmente a interface CAN pelo comando usando:
 
 `sudo /sbin/ip link set can0 up type can bitrate 500000`
@@ -125,9 +129,35 @@ Você pode verificar a configuração do link com
 `ifconfig`
 
 
+Para ativar a interface automaticamente durante o boot os seguintes linhas de código tem que ser adicionado no arquivo 
+
+`/etc/network/interfaces` : 
+
+```auto can0
+iface can0 inet manual
+    pre-up /sbin/ip link set can0 type can bitrate 500000 triple-sampling on restart-ms 100
+    up /sbin/ifconfig can0 up
+    down /sbin/ifconfig can0 down
+```
+
+Há uma questões sobre a capacidade de velocidade leitura e processamento do controlador e do Raspberry.
+Uma maneira simples é verificar é monitorar a carga do CPU usando o comando `top` e verifcar a quantidade de pacotes descartados ou com erro usando o `ifconfig`.
+
+Para verificar isso gerou-se uma mensagem no barramento com por exemplo um microcontrolador com interface CAN. No nosso exemplo, madando um pacote com uma mensagem de 4 bytes de dados a cada 1 milisegundo, deu uma carga de menos de 14% de CPU e nenhuma perda de pacote. 
+Ao mudar a velocidade para um pacoto a cada 1 microsegundo a carga de processamento chegou 65% com alguns erros na recepção. 
+Para um velocidade de clock de 500.000 hz pode se calcular teoricamente uma taxa efetiva de transmissão de dados de :
+
+500.000 / (tamanho de bits do pacto 31) = 16129 pacotes por segundo.
+Cada pacote com 4 bytes utis dá 64.500 bytes por segundo.
+
+
+
 # 4. Programa de EMS
 
 
 # 5. Bibliografia
 
 1 ) S. Mohd, S. A. Zulkifli, R. G. A. Rangkuti, M. Ovinis and N. Saad, "Electric vehicle energy management system using National Instruments' CompactRIO and LabVIEW," 2013 IEEE International Conference on Smart Instrumentation, Measurement and Applications (ICSIMA), Kuala Lumpur, 2013, pp. 1-6.  <DOI:10.1109/ICSIMA.2013.6717928>
+
+
+[volta](https://github.com/rudivels)
