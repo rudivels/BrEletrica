@@ -44,11 +44,13 @@ O subsistema de sinalização, luzes e monitoramento de temperatura e velocidade
 O computador de bordo funcionará como ponte entre as duas barramentos e também apresentará os dados do funcionamento do veículo por meio de uma interface interativa.
 
 
-[Subsistemas no barramento CAN de baixa velocidade](./Modulos_arduino_can/MOD_ARDUINO_README.md)
+[Barramento CAN de baixa velocidade](./Modulos_arduino_can/MOD_ARDUINO_README.md)
 
-[Subsistemas no barramento CAN de alta velocidade](./Beagleboard_can/BBB_CAN_README.md)
+[Barramento CAN de alta velocidade](./Barramento_Alta_Can/Barramento_Alta_README.md)
 
-[Sistema de gerenciamento de energia](./rasp_can/RASP_CAN_README.md)
+[Computador de bordo](./Beagleboard_can/BBB_CAN_README.md)
+
+[Sistema de Gerenciamento de Energia](./rasp_can/RASP_CAN_README.md)
 
 # Bibliografia
  
