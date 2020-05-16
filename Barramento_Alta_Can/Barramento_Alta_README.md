@@ -32,9 +32,82 @@ O módulo monitorá o consumo das baterias e por meio do barramento CAN informar
 
 Descrição do controlador do motor.
 
+Instrument: the CAN bus communication specification1. Communication specificationsThe data link layer principles should be followedBus rate: 250kbpsFor the data link layer regulations, please reference the relevant regulations of the CAN2.0 B and J1939.Each component of the CAN bus has a terminal resistor (120 ohms).All nodes of the CAN bus are light-coupler isolation, and all the bus driver chips are the PHILIPS 82C250.Sending cycle 40ms, 2 frames, each frame 20ms.Use CAN expand frame 29th identifierThe first frame ID code is 0x10 08 8A 9E. Data is as follows:DATA
+| LOCATION  | DATA  NAME  | Explain |
+|-----------|-------------|---------|
+| BYTE1 | voltage low byte	  |0.1V/bit offset：-10000 range：0 V～500V || BYTE2 |	voltage high byte  | | BYTE3 |	current low byte   | 0.1A/bit offset：-10000； current range：-500A～500A| BYTE4 |	current high byte  | 	| BYTE5 |	controller temperature | 	1℃/bit  offset：40℃ limits：0℃～100℃| BYTE6 |	running state	        | See attachment| BYTE7 |	fault code low byte	 | See attachment| BYTE8 |	fault code high byte |	Running status explanation:
+| BIT7 | BIT6 | BIT5 |	BIT4 |	BIT3 |	BIT2 | BIT1 | BIT0 |
+|------|------|------|------|------|-----|------|------|
+|reserved|Ready for|reserved|reserved|stop|brake|backward|forward|
+Fault code instructions: below are the low bytes, no meaning for the high bytes now.
+
+| BIT7 | BIT6 | BIT5 |	BIT4 |	BIT3 |	BIT2 | BIT1 | BIT0 |
+|------|------|------|------|------|-----|------|------|| 0|ERR7|ERR6|ERR5|ERR4|ERR3|ERR2|ERR1||75 ℃	|BMS|Over speed|Over heating|Over voltage|Under voltage|Over current|IGBT|```ID: 63C, Data: 80 00 00 00 00 00 00 00 ID: 63C, Data: 80 00 28 00 00 00 00 00 ID: 63C, Data: 80 C0 01 90 C8 00 00 00 ID: 63C, Data: 80 00 00 00 00 00 0 0 ID: 63C, Data: 80 00 28 00 00 00 0 0 ``````The second frame ID code is 0x10098A9E. Data is as follows:DATALOCATION	DATA NAME	explainBYTE1	motor speed low byte	1rpm offset： 0  range：0 ～10000BYTE2	motor speed high byte	BYTE3	mileage low byte	0.1	kilometeroffset：0；range：0～30000BYTE4	mileage high byte	BYTE5	motor torque low byte	0.1NMoffset：-10000 range：-1000～1000BYTE6	motor torque high byte	BYTE7	reserved	BYTE8	reserved	``dados medidos com arduino e can shield  15/02/2018```CAN eCAN Init okCAN Read - Testing receival of CAN Bus messageCAN Init ok
+```ID: 63C, Data: 80 00 00 00 00 00 0 0 ID: 63C, Data: 80 00 28 00 00 00 0 0 ID: 63C, Data: 80 C0 01 90 C8 00 0 0 ID: 63C, Data: 80 00 00 00 00 00 0 0 ID: 63C, Data: 80 00 28 00 00 00 0 0 ID: 63C, Data: 80 00 00 00 00 00 0 0 
+```
+
+
 # 4. Battery Management System BMS (EK-YT-21-BMS)
 
 Descrição do BMS.
+
+Com o osciloscópio mediu-se o sinal no barramento CAN e descobriu-se que a velocidade de comunicação do barramento era de 250khz. 
+Funcionamento do Modulo concentrador de comunicação.
+Sistema composto por 4 modulos de 16 celular LIFEPO4, ligado por meio de uma barramento próprio, passando alimentação e sinais para o modulo concentrador. Este modulo concentrador tem duas portas CAN. Uma porta para  o Battery Charger e outro avulso. 
+
+Foi feito o teste no 14/05/2020 com Arduino e Can sheild da sparkfun. 
+Ligou somente um modulo de batterias (tensão +-40 volts) e o display do BMS. 
+Sem ligar o sparkfun o barramento mostra uma atividade muito intensa no osciloscópio. Assim que coloca o sparkfun, no barramento aparece somente vem um pacote de dados a cada 2 segundos.
+
+Usou programa 
+`CAN Read Demo for the SparkFun CAN Bus Shield.`
+Da biblioteca de CAN do Arduino Shield. Somente configurou o programa para 250khz e a porta serial 57200 bps. 
+
+
+Quando liga o concentrador somente com um modulo e o display e o Arduino CAN Shield.  
+
+Primeiro teste arduino 
+
+```
+CAN Read - Testing receival of CAN Bus message
+CAN Init ok
+ID: 601, Data: 89 99 00 0F 01 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 01 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 01 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 01 00 00 00 
+
+```
+
+Quarta teste
+
+```
+CAN Read - Testing receival of CAN Bus message
+CAN Init ok
+ID: 601, Data: 89 99 00 0F 00 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 00 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 00 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 00 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 00 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 00 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 01 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 01 00 00 00 
+ID: 33C, Data: 80 00 00 00 00 00 00 00 
+ID: 601, Data: 89 99 00 0F 01 00 00 00 
+```
+
+
+Vamos agora testar com o programa <https://github.com/kahiroka/slcanuino>
+que permite usar o candump e outras ferramentas na próxima tentativa de depuração do barramento.
 
 
 
