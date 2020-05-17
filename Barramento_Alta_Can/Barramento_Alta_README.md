@@ -51,6 +51,9 @@ Instrument: the CAN bus communication specification1. Communication specificati
 
 Descrição do BMS.
 
+
+![](Diagrama_blocos_BMS.jpg)
+
 Com o osciloscópio mediu-se o sinal no barramento CAN e descobriu-se que a velocidade de comunicação do barramento era de 250khz. 
 Funcionamento do Modulo concentrador de comunicação.
 Sistema composto por 4 modulos de 16 celular LIFEPO4, ligado por meio de uma barramento próprio, passando alimentação e sinais para o modulo concentrador. Este modulo concentrador tem duas portas CAN. Uma porta para  o Battery Charger e outro avulso. 
