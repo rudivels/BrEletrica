@@ -10,14 +10,19 @@ Pasta local
 
 O barramento CAN de baixa velocidade interliga:
 
-
-- Carregador de banco de bateria de tração;
 - Módulo de controle de luzes e sinalização;
 - Módulo de monitoramento de velocidade, temperatura e óleo de freio;
 - Computador de Bordo.
 
 
-## 1.1. Módulo de controle de luzes e sinalização
+# 2. Módulo de controle de luzes e sinalização
+
+O BR800 é um carro fabricada na década de 1980 com um sistema de controle de luzes e sinalização convencional baseado em relés e interruptores simples. A conversão do BR800 para elétrica, também teve que fazer o *redesing* das instalações elétricas do veículo, incorporando toda parte de sinalização e luzes à barramento de comunicação do novo veículo.
+ 
+Um novo módulo foi desenhado para centralizar todos os comandos de luzes e sinalização, aproveitando as teclas e interruptores já existentes no *dashboard* do veículo, mas permitido a sua expansão com elementos não convencionais que podem ser facilmente incorporado na nova configuração tecnológica.
+
+![](Diagrama_blocos_Mod_luz.jpg)   
+
 Este módulo tem como elemento central o Arduino Nano. Escolheu-se esta placa microcontroladora por sua popularidade, grande acervo técnico de suporte e relação custo benefício. 
 O módulo monitora as teclas no painel para ligar a sinalização (setas direita e esquera), farois (baixo e alto), lanterna, luz de freio, pisca alerta, freio de mão, e luz de ré no total de 9 comandos.
 
@@ -25,6 +30,8 @@ Estes comandos são processados pelo módulo e apresentado de forma gráfico no 
 As figuras a seguir mostram o esquema elétrica do módulo e a placa de circuito impresso. (falta trimpot de luminosidade do lcd).
 
 ![](Esquema_Mod_luz.jpg)
+
+Falta trocar o D2 com D3 do Arduino para mantar a compatibilidade da biblioteca CAN do sparkfun can-shield.
 
 ![](placa_mod_luz.jpg)
 
@@ -37,10 +44,19 @@ A comunicação CAN é implementado por um controlador dedicada para CAN Bus MCP
 
 Os demais componentes do módulo são todos circuitos integrados convencionais, com destaque para o sensor de corrente ACS712.
 
-## 1.2. Modulo de sensores de velocidade, temperatura e óleo de freio
-Este módulo tem por função monitorar a velocidade da roda por meio de um sensor magnética acoplado na roda do veículo. Este sensor fornece um trêm de pulsos proporcional à velocidade de roda. O sensor de óleo de freio é um contato aberto montado na tampa do reservatório de óleo e também é monitorado em intervalos regulares. O módulo monitora 4 sensores de temperatura analógicos LM35 que estão insatalados no circuito de arrefecimento do motor elétrico e seu controlador. A partir da informação da temperatura o módulo comanda o ligamento da bomba circulação de água deste circuito. (pesquisar a opção de alimentar a bomba com 24Volts)
+# 3. Modulo de sensores de velocidade, temperatura e óleo de freio
+
+O BR800 tem um sensor de velocidade acoplada na roda dianteira e um sensor de nível de óleo de freio que foram incorporados no novo design de instrumentação do veículo. Além disso, o novo projeto deve monitorar a temperatura da água no circuito de arrefecimento do motor e controlador e comandar a bomda de circulação de água. O diagrama de blocos mostra as entradas e saídas deste novo modulo de instrumentação.
+
+![](Diagrama_blocos_Mod_Instrum.jpg)
+
+O circuito de arrefecimento aproveita o radiador original do veículo adaptada para a nova configuração. O diagrama blocos a seguir mostra o circuito.
+
 
 ![Circuito termico](tela_sistema_radiador_VEBR.jpg)
+
+Este módulo tem por função monitorar a velocidade da roda por meio de um sensor magnética acoplado na roda do veículo. Este sensor fornece um trêm de pulsos proporcional à velocidade de roda. O sensor de óleo de freio é um contato aberto montado na tampa do reservatório de óleo e também é monitorado em intervalos regulares. O módulo monitora 4 sensores de temperatura analógicos LM35 que estão insatalados no circuito de arrefecimento do motor elétrico e seu controlador. A partir da informação da temperatura o módulo comanda o ligamento da bomba circulação de água deste circuito. (pesquisar a opção de alimentar a bomba com 24Volts)
+
  
 O módulo monitora ainda a tensão e corrente da sua própria alimentação 12 Volts, e também monitora a corrente e tensão do circuito de 24Volts.  
 Da mesma forma do módulo anterior, escolheu-se implementar este módulo usando Arduino e as figuras a seguir mostram o esquema eletrônico e a placa de circuito impresso.
@@ -54,8 +70,6 @@ Da mesma forma que o módulo anterior a comuicação usa o MCP2515 que está lig
 Os demais componentes do módulo são todos componentes discretos e há dois sensores de corrente ACS712 para monitorar o consumo do módulo.  
 
 
-## 1.3. Carregador de banco de bateria de tração
-10 kwh @ 200Vdc LiFePo4
 
 
 ## Anotações
