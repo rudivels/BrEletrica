@@ -67,4 +67,7 @@ O computador de bordo funcionará como ponte entre as duas barramentos e também
 4) Ribeiro A do N, Meneghin P, Els RH van. Developing technology for a Brazilian hybrid electric mini car. 2nd Lat. Am. Conf. Sustain. Dev. Energy, Water Environ. Syst., 2020, p. 1–10. 
 [link artigo](http://fga.unb.br/rudi.van/galeria/arrigo-alex-lasdewes20-fp-161.pdf)
 
+5) Costa MDO, Els RH van, Khalil SB. Projeto de platafoma de análise de conversão de tração de veículos com motor a combustão interna para tração elétrica. 10o Salão e Congr. Latino-Americano Veículos Elétricos, São Paulo: 2014.
+[link artigo](http://fga.unb.br/rudi.van/galeria/costa-els-projeto-de-plataforma-de-veiculo-eletrico.pdf)
+
 
