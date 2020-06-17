@@ -70,4 +70,4 @@ O computador de bordo funcionará como ponte entre as duas barramentos e também
 5) Costa MDO, Els RH van, Khalil SB. Projeto de platafoma de análise de conversão de tração de veículos com motor a combustão interna para tração elétrica. 10o Salão e Congr. Latino-Americano Veículos Elétricos, São Paulo: 2014.
 [link artigo](http://fga.unb.br/rudi.van/galeria/costa-els-projeto-de-plataforma-de-veiculo-eletrico.pdf)
 
-
+Abri para mais usuarios
