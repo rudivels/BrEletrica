@@ -27,7 +27,7 @@ Este módulo tem como elemento central o Arduino Nano. Escolheu-se esta placa mi
 O módulo monitora as teclas no painel para ligar a sinalização (setas direita e esquera), farois (baixo e alto), lanterna, luz de freio, pisca alerta, freio de mão, e luz de ré no total de 9 comandos.
 
 Estes comandos são processados pelo módulo e apresentado de forma gráfico no display do módulo e por meio de 7 comandos os sinais luminosos farol alto, farol baixa, lanterna, luz de freio, luz de ré e as setas para direita e esquerda são acionados. A sinalização de freio de mão acionada e encaminhada somente para o display. 
-As figuras a seguir mostram o esquema elétrica do módulo e a placa de circuito impresso. 
+
 
 A documentação completo da implementação do módulo está no repositório 
 
