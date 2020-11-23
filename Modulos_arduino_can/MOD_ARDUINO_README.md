@@ -30,7 +30,6 @@ Estes comandos são processados pelo módulo e apresentado de forma gráfico no 
 
 
 A documentação completo da implementação do módulo está no repositório 
-
 [`https://github.com/Tecnomobele-FGA/Modulo-luzes`](https://github.com/Tecnomobele-FGA/Modulo-luzes)
 
 
