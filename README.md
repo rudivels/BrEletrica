@@ -32,7 +32,7 @@ Há dois barramentos de comunicação no veículo. O primeiro é um barramento *
 
 O diagrama de blocos a seguir mostra os componentes e os dois barramentos CAN.
 
-![Diagrama](https://github.com/rudivels/BrEletrica/blob/master/Diagrama_blocos_BBB_Modbus_CAN.jpg)
+![](figuras/Diagrama_blocos_BBB_Modbus_CAN.jpg)
 
 
 Assim o subsistema de tração do veículo, composto pelo motor elétrico e o seu controlador recebe os comandos de velocidade e direção do condutor e disponibiliza todos os dados como rotação do motor, tensão e corrente do motor, temperatura do controlador etc, no barramento CAN de alta velocidade.
@@ -42,6 +42,16 @@ Da mesma forma o sistema de armazenamento de energia composto pelas baterias, o 
 O subsistema de sinalização, luzes e monitoramento de temperatura e velocidade estão interligados no barramento CAN de baixa velocidade.
 
 O computador de bordo funcionará como ponte entre as duas barramentos e também apresentará os dados do funcionamento do veículo por meio de uma interface interativa.
+
+[Descrição do projeto do Computador de bordo](https://github.com/Tecnomobele-FGA/Computador-de-bordo)
+
+[Descrição do projeto do Módulo de luzes](https://github.com/Tecnomobele-FGA/Modulo-luzes)
+
+[Descrição do projeto do modulo de instrumentação](https://github.com/Tecnomobele-FGA/Modulo-instrumentacao)
+
+
+
+Até aqui ok..
 
 
 [Barramento CAN de baixa velocidade](./Modulos_arduino_can/MOD_ARDUINO_README.md)
