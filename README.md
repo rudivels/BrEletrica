@@ -49,18 +49,11 @@ O computador de bordo funcionará como ponte entre as duas barramentos e também
 
 [Descrição do projeto do modulo de instrumentação](https://github.com/Tecnomobele-FGA/Modulo-instrumentacao)
 
+[Descrição do projeto do sistema de gerenciamento de energia](https://github.com/Tecnomobele-FGA/Sistema-gerenciamento-energia)
 
 
-Até aqui ok..
 
 
-[Barramento CAN de baixa velocidade](./Modulos_arduino_can/MOD_ARDUINO_README.md)
-
-[Barramento CAN de alta velocidade](./Barramento_Alta_Can/Barramento_Alta_README.md)
-
-[Computador de bordo](./Beagleboard_can/BBB_CAN_README.md)
-
-[Sistema de Gerenciamento de Energia](./rasp_can/RASP_CAN_README.md)
 
 # Bibliografia
  
