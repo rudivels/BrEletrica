@@ -51,6 +51,10 @@ O computador de bordo funcionará como ponte entre as duas barramentos e também
 
 [Descrição do projeto do sistema de gerenciamento de energia](https://github.com/Tecnomobele-FGA/Sistema-gerenciamento-energia)
 
+A implementação dos subsistemas está nos seguintes diretórios.
+
+[Implementacao do módulo de luzes](https://github.com/rudivels/BREletrica_Luzes_CAN_beep_display)
+
 
 
 
