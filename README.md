@@ -55,6 +55,7 @@ A implementação dos subsistemas está nos seguintes diretórios.
 
 [Implementacao do módulo de luzes](https://github.com/rudivels/BREletrica_Luzes_CAN_beep_display)
 
+[Impplementacao do módulo de instrumentação](https://github.com/rudivels/BREletrica_Sensor_CAN_Lcd_Velocidade_temperatura)
 
 
 
