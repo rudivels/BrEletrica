@@ -5,8 +5,6 @@ Pasta local
 `/Users/rudi/src/BrEletrica/`
 
 
-
-# 1. Apresentação 
 O Gurgel BR800 foi projetado pelo Gurgel Motores na década de setenta com uma proposta inovadora de ser um veículo leve, pequeno, acessível, ou seja, o primeiro carro popular brasileiro. Estes caractersíticas tornam-o apropriadao para ser convertido para tração elétrica. Entretanto, a proposta de transformação do BR800 não se resumo somente a trocar a máquina de tração, mas tem como proposta desenvolver tecnologias para a eletrificação do setor de transportes. Neste sentido os princípios que nortearam a transforção são:
 
 - O carro será usado como laboratório com acesso fácil a todos os novos componentes;
@@ -14,6 +12,19 @@ O Gurgel BR800 foi projetado pelo Gurgel Motores na década de setenta com uma p
 - Tecnologia livre: código fonte aberta e também hardware não proprietário;
 
 A primeira conversão foi realizado com o BR800 instalada no dinamômetro trocando o motor de combustão por motor elétrico [1]. Em seguido um banco de baterias foi instalada e o sistema de arrefecimento do motor e seu controlador. Este sistema de arrefecimento foi desenhada de tal forma que facilite o acesso aos componentes e sua instrumentação [2]. O banco de baterias também foi organizado em módulos para faciliar o acesso e manuseio [3]. 
+
+
+# 1. Instalação do motor, controlador e banco de bateria
+
+A figura a seguir mostra o diagrama elétrica da parte de potência interligando o motor com o controlador e o banco de baterias.
+
+![](Figuras/1_projeto_breletrico_cabeacao_potencia_motor_baterias_e_inversor.png)
+
+
+O detalhamento do controle do inversor é apresentado na figura a seguir.
+
+![](Figuras/3_projeto_breletrico_painel_de_controle_de_inversor.png)
+
 
 A segunda etapa da conversão é o redesenho de toda parte elétrica convencional do carro, como por exemplo, farois, luzes e demais assessórias num barramento usando tecnologia de rede local automotiva mais moderna. O BR800 foi desenvolido na década de oitenta e naquela época o sistema elétrico do veículo era realizado com relés e interruptores. Dessa forma é necessária desenhar um novo arranjo da instalação elétrica do carro, levando em conta a necessidade de instrumentação e monitoramento, segurança, e eficiência energética. 
 
@@ -29,6 +40,10 @@ Os veículos modernos usam diversos subsistemas específicos para controlar as d
 - Subsistema de portas, vidros e demais assessórios.
 
 Há dois barramentos de comunicação no veículo. O primeiro é um barramento *Control Area Network (CAN)* de alto velocidade que estabelece a comunicação entre os subsistemas críticos como tração e armazenamento. A comunicação entre os demais subsistemas é realizado por um barramento CAN de baixa velocidade. O subsistema de instrumentação também funcionará como ponte entre os dois barramentos.
+
+A figura a seguir mostra a ligação dos diversos módulos com o computador de bordo e o BMS.
+
+![](Figuras/4_projeto_breletrico-chave_geral_e_dashboard_e_can_bus.png)
 
 O diagrama de blocos a seguir mostra os componentes e os dois barramentos CAN.
 
