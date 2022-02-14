@@ -1,4 +1,4 @@
-# Iniciando o projeto de CANBUS para o BRElétrico
+# Conversão do BR800 para o BRElétrico
 Rudivels @Abril 2020
 
 Pasta local  
@@ -39,6 +39,8 @@ Os veículos modernos usam diversos subsistemas específicos para controlar as d
 - Subsistema de instrumentação e sinalização;
 - Subsistema de portas, vidros e demais assessórios.
 
+
+## 2.1. Módulos
 Há dois barramentos de comunicação no veículo. O primeiro é um barramento *Control Area Network (CAN)* de alto velocidade que estabelece a comunicação entre os subsistemas críticos como tração e armazenamento. A comunicação entre os demais subsistemas é realizado por um barramento CAN de baixa velocidade. O subsistema de instrumentação também funcionará como ponte entre os dois barramentos.
 
 A figura a seguir mostra a ligação dos diversos módulos com o computador de bordo e o BMS.
@@ -60,7 +62,7 @@ O computador de bordo funcionará como ponte entre as duas barramentos e também
 
 [Descrição do projeto do Computador de bordo](https://github.com/Tecnomobele-FGA/Computador-de-bordo)
 
-[Descrição do projeto do Módulo de luzes](https://github.com/Tecnomobele-FGA/Modulo-luzes)
+[Descrição do projeto do Módulo de luzes - sinalização ](https://github.com/Tecnomobele-FGA/Modulo-luzes)
 
 [Descrição do projeto do modulo de instrumentação](https://github.com/Tecnomobele-FGA/Modulo-instrumentacao)
 
@@ -68,14 +70,29 @@ O computador de bordo funcionará como ponte entre as duas barramentos e também
 
 A implementação dos subsistemas está nos seguintes diretórios.
 
-[Implementacao do módulo de luzes](https://github.com/rudivels/BREletrica_Luzes_CAN_beep_display)
+[Implementacao do módulo de luzes - sinalização ](https://github.com/rudivels/BREletrica_Luzes_CAN_beep_display)
 
 [Impplementacao do módulo de instrumentação](https://github.com/rudivels/BREletrica_Sensor_CAN_Lcd_Velocidade_temperatura)
 
 
 
 
-# Bibliografia
+# 3. Cabeamento e painel (dashboard)
+
+Proposta de cabeação do painel e do hub no compartimento do motor.
+A figura a seguir mostra uma proposta de disposição do painel com o módulo de sinalização. A proposta é ter toda a cabeação no painel e com alguns conectores de fácil (des)montagem.  
+
+![](Figuras/layout-painel-BR800.jpg)
+
+Visão interna do painel com detalhamento da cabeação
+
+![](Figuras/layout-cabeacao-painel-BR800.jpg)
+
+No berço do motor há a necessidade de um hub de cabeação para ligar os comandos do motor, o módulo de instrumentação e o conector painel (dashboard)
+
+![](Figuras/layout-hub-ligacao-motor-instumentos.jpg)
+
+# 4. Bibliografia
  
 
 1) Vieira MVB, Els RH van, Khalil SB. Avaliação de um veículo a combustão interna convertido para tração elétrica. Congr. iniciação científica Univ. Brasília, 2015, p. 1–9. 
