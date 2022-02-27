@@ -110,7 +110,16 @@ No berço do motor há a necessidade de um hub de cabeação para ligar os coman
 
 ![](Figuras/layout-hub-ligacao-motor-instumentos.jpg)
 
-# 4. Bibliografia
+
+
+
+
+# 4. Integração dos sistemas
+
+![](figuras/foto_bancada_test_can_obc_instrum.jpg)
+
+
+# 5. Bibliografia
  
 
 1) Vieira MVB, Els RH van, Khalil SB. Avaliação de um veículo a combustão interna convertido para tração elétrica. Congr. iniciação científica Univ. Brasília, 2015, p. 1–9. 
