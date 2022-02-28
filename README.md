@@ -117,7 +117,7 @@ No berço do motor há a necessidade de um hub de cabeação para ligar os coman
 # 4. Integração dos sistemas
 
 Bancada de teste
-![Bancada de teste](figuras/foto_bancada_test_can_obc_instrum.jpg)
+![Bancada de teste](Figuras/foto_bancada_test_can_obc_instrum.jpg)
 
 
 # 5. Bibliografia
